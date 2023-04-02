@@ -1,9 +1,7 @@
 #le decimos a la pc con qué tiene que ejecutar el script
 #!/usr/bin/env python3
 
-"""
-Como lo hizo el profe kwai ):
-"""
+
 import os, glob, sys
 def ejercicio_ruta ():
     os.chdir ("Informes")
