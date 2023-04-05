@@ -14,16 +14,16 @@ def contenido_listas (nombre_archivo,numero_lineas):
 print (contenido_listas ("ej1.txt",4))
   """
 
+""""
+#3
 
-"""#3
-
-ultimas_lineas=[]
-todas_las_lineas=[]
-def contenido_listas (nombre_archivo,numero_lineas):   
+def contenido_listas (nombre_archivo,numero_lineas):       
+    ultimas_lineas=[]
+    todas_las_lineas=[]
     with open (nombre_archivo,"r") as archivo:
             contenido_lineas=(archivo.readlines ()[:numero_lineas])
             todas_las_lineas.append (contenido_lineas)
-            lista_invertida=todas_las_lineas[::-1]
+            lista_invertida=todas_las_lineas.reverse ()
             return (lista_invertida)
 print (contenido_listas ("ej1.txt",6))
 #no logro inverit la lista
@@ -58,13 +58,20 @@ print (eliminar_saltos_lineas("ej1.txt","\n","","arch2.txt"))
 """
 #7Escribí un porgrama que lea un archivo e identifique la palabra más larga, la cual 
 # debe imprimir y decir cuantos caracteres tiene.
-"""def palabras_mas_larga (nombre_archivo):  
+def palabras_mas_larga (nombre_archivo):  
+    max_long=0
+    palabra=""
     with open (nombre_archivo,"r") as archivo:
         contenido_archivo= archivo.read()
         separo_palabras=contenido_archivo.split (" ")
-        palabras_larga=max (separo_palabras)
-        return (palabras_larga)
+       # falta un for que recorra la lista
+        for word in separo_palabras:
+            if len (word)>max_long:
+                max_long=len(word)
+                palabra=word 
+        print (palabra)
 print (palabras_mas_larga("ej1.txt"))
+"""
 #8
 def dos_doc_en_uno (nombre_archivo1,nombre_archivo2,nombre_archivo3):  
     with open (nombre_archivo1,"r") as archivo1:
@@ -90,7 +97,7 @@ def contar_palabras (nombre_archivo,palabra_a_buscar):
         return (contar,cantidad_total)
 print (contar_palabras("ej1.txt","Hola"))
 """
-import os, sys,glob
+"""import os, sys,glob
 #10
 def leer_archivos (nombre_archivo_carpeta_resultados):
     os.chdir ("C:\\Users\\valen\\Ejercicios\\Practicas_Python_Intro\\Carpeta 1")
@@ -106,5 +113,4 @@ def leer_archivos (nombre_archivo_carpeta_resultados):
                             return archivo3_completo
 
 leer_archivos("Tercerarchivo.txt")
-
-
+"""
