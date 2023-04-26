@@ -45,4 +45,6 @@ if __name__=="__main__":
     print (findfile)
 
 
-
+import re
+def mail():
+     return bool (re.search ("^\w+[.-_]?\w*@+[a-z]+[.][a-z]+[.]?[a-z]?"))
