@@ -131,28 +131,28 @@ print (sub_strings (("hola_a todas y: todos")))"""
 #13
 """"Escribí un programa que reemplace los dos primeros caracteres no alfanúmericos por guiones bajos."""
 
-def reemplazar2 (string):
+"""def reemplazar2 (string):
     return (re.sub("(\W)",'_',string,count=2))
 
 print (reemplazar2 (("Hoy523@es@@tuvimos trabajand735o con re -regul74ar expr52ession- en py@th532523on -con VSC532ode-")))
 
-
+"""
 #14
 """"Realizá un programa que reemplace los espacios y tabulaciones por punto y coma."""
 
-def reemplazar (string):
+"""def reemplazar (string):
     return string.replace(" ",";").replace("    ",";")
     
-print (reemplazar (("hola_a todas y: todos ")))
+print (reemplazar (("hola_a todas y: todos ")))"""
 
 #15
 """"Realizá un programa que validar si una cuenta de mail está escrita correctamente."""
-
+"""
 def verificar_string (string):
     return (re.search(r"[a-z0-]+[._-]?[a-z0-9]*[@][a-z]+[.]?[a-z]*",string))
 
 #^[a-z0-9]+[.-_]?[a-z0-9]+@[a-z]+[.][a-z]+[.]?[a-z]?$
-print (verificar_string (("valentinviola@gmail.com")))
+print (verificar_string (("valentinviola@gmail.com")))"""
 
 """"def verificar_string (string):
     return (re.search("Hola\sbuen\sdia",string))
@@ -160,3 +160,136 @@ print (verificar_string (("valentinviola@gmail.com")))
 print (verificar_string("Hola buen dia"))"""
 #Manipulación de archivos
 
+#1
+"""Realizá un programa que lea un archivo e imprima cuántas líneas de ese archivo no empiezan con 
+una determinada letra (por ejemplo que imprima cuántas líneas no empiezan con "P")."""
+
+""""def lineas_con_p (archivo,letra):
+    contador=0
+    with open (archivo, "r") as arch:
+       for linea in arch:
+           if (linea[0] != letra.lower() and linea[0] !=letra.upper()):
+               contador+=1
+    return contador  
+
+print (lineas_con_p ("C:\\Users\\valen\\Ejercicios\\Ejercicios\\nuevo.txt","P"))
+"""
+#otra forma mas corta pero solo toma o p o P
+
+""""def lineas_con_p2 (archivo,letra):
+    contador=0
+    with open(archivo, "r") as archivo:
+        for linea in archivo:
+            if linea.startswith(letra):
+                contador += 1
+        return contador
+print (lineas_con_p2 ("C:\\Users\\valen\\Ejercicios\\Ejercicios\\nuevo.txt","p"))      
+"""
+#2
+""""Escribí un programa que lea un archivo e imprima las primeras n líneas."""
+""""
+def primeras_lineas (archivo,numero_de_lineas):
+    with open (archivo,"r") as archivo:
+        lineas_de_archivo=archivo.readlines ()[:numero_de_lineas]
+        return lineas_de_archivo
+print (primeras_lineas("C:\\Users\\valen\\Ejercicios\\Ejercicios\\nuevo.txt",4))
+"""
+#3
+""""Escribí un programa que lea un archivo, guarde las líneas
+ del archivo en una lista y luego imprima las n últimas."""
+
+""""def primeras_lineas (archivo,numero_de_lineas):
+    with open (archivo,"r") as archivo:
+        lineas_de_archivo=archivo.readlines ()[-numero_de_lineas:]
+
+        return lineas_de_archivo
+print (primeras_lineas("C:\\Users\\valen\\Ejercicios\\Ejercicios\\nuevo.txt",1))
+"""
+#4
+""""Hacé un programa que lea un archivo, cuente la cantidad de
+ palabras del archivo y luego imprima el resultado."""
+""""def primeras_lineas (archivo):
+    with open (archivo,"r") as archivo:
+        lineas_de_archivo=archivo.read ()
+        lineas_de_archivoStr="".join(lineas_de_archivo)
+        return (len (re.split (" |\n",lineas_de_archivoStr)))
+       
+print (primeras_lineas("C:\\Users\\valen\\Ejercicios\\Ejercicios\\nuevo.txt"))
+"""
+#5
+""""Escribí un programa que lea un archivo, reemplace una letra por 
+esa misma letra más un salto de línea y lo guarde en otro archivo."""
+""""
+def primeras_lineas (archivo,letra):
+    with open (archivo,"r") as archivo:
+        archivo_leido=archivo.read ()
+        return archivo_leido.replace (letra,f"{letra}\n")
+       
+       
+print (primeras_lineas("C:\\Users\\valen\\Ejercicios\\Ejercicios\\nuevo.txt","P"))
+"""
+#6
+''''Realizá un programa que lea un archivo, elimine todos los saltos de línea y lo guarde en otro archivo.'''
+
+""""def primeras_lineas (archivo,archivo2):
+    with open (archivo,"r") as archivo:
+        archivo_leido=archivo.read ()
+        archivo_reemplazado= archivo_leido.replace ("\n","")
+        with open (archivo2,"a") as archivo2:
+            archivo2.write (archivo_reemplazado)
+       
+print (primeras_lineas("C:\\Users\\valen\\Ejercicios\\Ejercicios\\nuevo.txt","archiv2"))"""
+
+#7
+"""Escribí un porgrama que lea un archivo e identifique la palabra más larga, 
+la cual debe imprimir y decir cuantos caracteres tiene."""
+
+""""def palabra_mas_larga (archivo):
+    with open (archivo,"r") as archivo:
+longitud_maxima = 0
+    for palabra in archivo_leido:
+        if len(palabra) > longitud_maxima:
+            longitud_maxima = len(palabra)
+            palabra_mas_larga = palabra
+            return (palabra_mas_larga)
+
+print (palabra_mas_larga("C:\\Users\\valen\\Ejercicios\\Ejercicios\\nuevo.txt"))"""
+
+#8
+"""
+Escribí un programa que abra dos documentos y guarde el contenido de ambos en un otro documento ya existente.
+"""
+
+""""def contenido_archivos (archivo1,archivo2,archivo3):
+    with open (archivo1,"r") as arch1, open (archivo2,"r") as arch2, open (archivo3,"a") as arch3:
+        archivos_leidos=arch1.read()
+        archivos_leido2=arch2.read()
+        archivos_leidos3=archivos_leidos+archivos_leido2
+        return arch3.write(archivos_leidos3)
+print (contenido_archivos("C:\\Users\\valen\\Ejercicios\\Ejercicios\\nuevo.txt","C:\\Users\\valen\\Ejercicios\\Ejercicios\\nuevo_arch.txt","archivo_completo.txt"))
+"""
+#9
+"""
+Realizá un programa que lea un archivo y obtenga la frecuencia de 
+cada palabra que hay en el archivo. Recordá que la frecuencia es la 
+relación entre número de veces que aparece 
+la palabra en cuestión con respecto a la cantidad total de palabras.
+"""
+def frecuencia (archivo,palabra):
+    contador=0
+    with open (archivo,"r") as arch1:
+        arch1_leido=arch1.read()
+        arch1_leido_lista=re.split (" |\n",arch1_leido)
+        len_arch1_leido_lista=len(arch1_leido_lista)
+        for palabra_buscada in arch1_leido_lista:
+            if palabra in palabra_buscada:
+                contador+=1
+    return ("La frecuencia de la palabra es", (contador*100)/len_arch1_leido_lista), contador
+print (frecuencia("C:\\Users\\valen\\Ejercicios\\Ejercicios\\nuevo.txt","ponelo"))
+
+#10
+"""
+Escribí un programa que lea todos los archivos .txt de una carpeta dada (Carpeta1) 
+y los añada a un archivo dentro de la carpeta Resultado, 
+que a su vez se tiene que encontrar dentro de Carpeta1.
+"""
