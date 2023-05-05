@@ -424,7 +424,8 @@ calculadora.restar(8)
 calculadora.multiplicar(2)
 print (calculadora.valorActual())"""
 
-"""class Gorriones:
+#intento 1
+""""class Gorriones:
     def __init__ (self, su_CSS, su_CSSP, su_CSSV):
         self.CSS=su_CSS
         self.CSSP=su_CSSP
@@ -466,7 +467,9 @@ print (calculadora.valorActual())"""
             self.cantidad_de_comidas+=1
         selfCSSV=self.cantidad_de_vuelos/self.cantidad_de_comidas
 gorreon=Gorriones(0,0,0)
-print (gorreon.calculoCSS(10,2))"""
+print (gorreon.calculoCSS(10,2))
+"""
+#intento 2
 """"class Gorreones:
     def __init__ (self):
         self.CSS=0
@@ -519,11 +522,9 @@ print (gorreon.calculoCSS(10,2))"""
             self.CSSV=self.cantidad_de_vuelos/self.cantidad_de_comidas
         except ZeroDivisionError:
             print ("None")"""
+#intento 3           
 """"class Gorreones:
     def __init__(self):
-        self.CSS = 0
-        self.CSSP = None
-        self.CSSV = None
         self.mayor_vuelo = 0
         self.mayor_comida = 0
         self.cantidad_de_vuelos = 0
@@ -572,7 +573,6 @@ print (gorreon.CSSP)
 print (gorreon.calculoCSSV(10,3))
 print (gorreon.CSSV)
 """
-
 #POO parte 2
 #1
 
@@ -625,69 +625,64 @@ set={pepita,gorre}
 frank=Ornitologo(set)
 print frank.realizarRutina (set{pepita})
 """
-""""class Ornitologo:
-    def __init__(self,lista_aves):
-        self.aves_estudio=lista_aves
 
-    def realizarRutinaSobreAves(self,ave):
-        ave.comer(20)
-        ave.volar(10)
-        ave.comer(80)
+class Ornitologo:
+    def __init__ (self):
+        self.aves=[]
+    #agrego aves para estudiar
+    def estudiar_ave (self, ave):
+        self.aves.append (ave)
+    #lista de aves
+    def aves_en_estudio(self):
+        return self.aves
+    #se da el polimorfismo, defino un metodo que llama a un metodo que tienen las clases de Golondrina y Gorreones
+    def aves_en_equilibrio(self):
+        return [self.aves[i].esta_en_equilibrio() for i in range (len(self.aves))]
+        #lista de booleanos que devuelve por cada aves si esta o no en equilibrio
+        #otra forma
+        for ave in self.aves:
+            ave.esta_en_equilibrio()
 
-    def estudiarAve (self,ave):
-        return ave.__init__
+    def realizar_rutina (self):
+        [self.aves[i].comer(80) for i in range (len(self.aves))]
+        [self.aves[i].volar(70) for i in range (len(self.aves))]
+        [self.aves[i].comer(10) for i in range (len(self.aves))]
 
-    def avesEnEstudio (self):
-        return self.aves_estudio
 
-    def avesEnEquilibrio (self):
-        pass
-
-class Gorreones(Ornitologo):
+class Gorriones:
     def __init__(self):
-        self.CSS = 0
-        self.CSSP = None
-        self.CSSV = None
-        self.mayor_vuelo = 0
-        self.mayor_comida = 0
-        self.cantidad_de_vuelos = 0
-        self.cantidad_de_comidas = 0
+        self.kilometros = [] 
+        self.gramos = []
 
     def volar(self, km):
-        self.cantidad_de_vuelos += 1
-        if km > self.mayor_vuelo:
-            self.mayor_vuelo = km
+        self.kilometros.append(km)
 
     def comer(self, gramos):
-        self.cantidad_de_comidas += 1
-        if gramos > self.mayor_comida:
-            self.mayor_comida = gramos
+        self.gramos.append(gramos)
 
-    def calculoCSS(self, km, gramos):
-        if km > 0 and gramos > 0:
-            self.CSS = km / gramos
-
-        self.volar(km)
-        self.comer(gramos)
-
-    def calculoCSSP(self, km, gramos):
-        if self.mayor_vuelo == 0 or self.mayor_comida == 0:
-            self.CSSP = None
+    def css(self):
+        if not self.gramos == []: # if len(self.gramos) > 0: 
+            return sum(self.kilometros) / sum(self.gramos) #suma los valores de la lista SOLO si son valores numericos
+                                                       # si hay strings rompe
         else:
-            self.CSSP = self.mayor_vuelo / self.mayor_comida
+            return None
 
-        self.volar(km)
-        self.comer(gramos)
-
-    def calculoCSSV(self, km, gramos):
-        if self.cantidad_de_comidas == 0:
-            self.CSSV = None
+    def cssp(self):
+        if not self.gramos == []:
+            return max(self.kilometro) / max(self.gramos)
         else:
-            self.CSSV = self.cantidad_de_vuelos / self.cantidad_de_comidas
+            return None
 
-        self.volar(km)
-        self.comer(gramos)
-class Golondrina(Ornitologo):
+    def cssv(self):
+        if not self.gramos == []:
+            return len(self.kilometro) / len(self.gramos)
+        else:
+            return None
+        
+    def esta_en_equilibrio(self):
+        return  0.5 <= self.css() <= 2 #en lugar de usar un if
+
+class Golondrina:
   def __init__(self, energia):
     self.energia = energia
 
@@ -700,22 +695,8 @@ class Golondrina(Ornitologo):
   def volar(self):
     return not self.energia<0 
   
-  def comer (self,gramos):
-      self.energia+=gramos
-  
   def equilibrio (self):
     return (self.energia<300 and self.energia>150)
-  
-pepita= Golondrina(100)
-pepo=Gorreones ()
-frank=Ornitologo ("Gorreones",["Gorreones","Golondrinas"])
-
-print (pepita.estudiarAve(Gorreones()))
-print (frank.aves_estudio)
-print (pepita.energia)
-print (pepita.realizarRutinaSobreAves(Golondrina))
-print (pepita.energia)"""
-
 #EJERCICIO 4
 """"class MedioDeTransporte:
     def __init__ (self,su_combustible):
@@ -829,7 +810,7 @@ Además instanciá a un Titan y ejecutá las siguientes líneas:"""
         cuantas_casas=(self.salud*8)/100 #100 es su salud maxima
         return cuantas_casas
     def destruir_casas (self):
-        if self.salud>0:
+        if self.cuantascasas>1:
             return (self.salud*8)// 100
         else:
             print ("No tengo salud suficientes")
