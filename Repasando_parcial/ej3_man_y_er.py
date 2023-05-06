@@ -42,4 +42,4 @@ Where can I get som There are many variations of passages of Lorem Ipsum availab
     with open (archivo_salida, "a") as arch_salida:
         arch_salida.write (f"{todos_los_mailsStr}")
 
-buscar_mails ("./carpeta_con_mails","./carpeta_salida","salida.txt")
+buscar_mails ("./Repasando_parcial/carpeta_con_mails","./carpeta_salida","salida.txt")
