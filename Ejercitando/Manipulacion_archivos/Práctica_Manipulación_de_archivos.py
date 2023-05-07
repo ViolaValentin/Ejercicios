@@ -14,7 +14,7 @@ def contenido_listas (nombre_archivo,numero_lineas):
 print (contenido_listas ("ej1.txt",4))
   """
 
-""""
+
 #3
 
 def contenido_listas (nombre_archivo,numero_lineas):       
@@ -27,7 +27,7 @@ def contenido_listas (nombre_archivo,numero_lineas):
             return (lista_invertida)
 print (contenido_listas ("ej1.txt",6))
 #no logro inverit la lista
-"""
+
 """#4
 def contar_palabras (nombre_archivo):   
     with open (nombre_archivo,"r") as archivo:
@@ -56,7 +56,7 @@ def eliminar_saltos_lineas (nombre_archivo,salto_linea,reemplazo,nombre_nuevo_ar
         return (contenido_reemplazado, archivo2)
 print (eliminar_saltos_lineas("ej1.txt","\n","","arch2.txt"))
 """
-#7Escribí un porgrama que lea un archivo e identifique la palabra más larga, la cual 
+"""#7Escribí un porgrama que lea un archivo e identifique la palabra más larga, la cual 
 # debe imprimir y decir cuantos caracteres tiene.
 def palabras_mas_larga (nombre_archivo):  
     max_long=0
@@ -70,7 +70,7 @@ def palabras_mas_larga (nombre_archivo):
                 max_long=len(word)
                 palabra=word 
         print (palabra)
-print (palabras_mas_larga("ej1.txt"))
+print (palabras_mas_larga("ej1.txt"))"""
 """
 #8
 def dos_doc_en_uno (nombre_archivo1,nombre_archivo2,nombre_archivo3):  
