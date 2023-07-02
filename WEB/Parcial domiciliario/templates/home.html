@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiwik</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='css/favicon.png') }}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/home.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="columna1">  
+        <img class="logo" src="{{ url_for('static', filename='css/img.png') }}" alt="">
+        <div class="text-container">
+            
+            <h1>TARJETA Kwik-E-Mart</h1>
+            <a href="{{ url_for('clientes') }}"><h3>Más cerca de nuestros clientes</h3></a>
+        </div>
+    </div>
+    <div class="columna2">
+        <div class="hexagon hexagon1"></div>
+        <div class="hexagon hexagon2"></div>
+        <div class="hexagon hexagon3"></div>
+    </div>
+</body>
+</html>
