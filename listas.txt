@@ -1,0 +1,13 @@
+Acciones de las listas:
+● lista.append(56) → agregar el valor siempre se va a agregar al final.
+● insertar la dif es que yo puedo elegir el lugar que va a ocupar el nuevo
+valor. lista.insert (2,56) → sería insertar el 56 en el lugar 2.
+● eliminar; (remove o pop )
+lista.remove(56 → eliminar un valor en específico
+lista.pop(2) → un valor por el lugar en el que se encuentra
+● Count: cuenta ocurrencias de un valor. lista.count(56)
+● Sort : Ordena los valores de la lista. Deben tener valores del mismo
+tipo. lista.sort() → al revés
+● lista.sort(reverse=True)
+● Index: devuelve la posición de un valor. lista.index('56’)
+● len(lista)
